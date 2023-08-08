@@ -1,0 +1,95 @@
+/* Reset default margin and padding for all elements */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px 0 0 5px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#current-weather {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+#forecast {
+    display: flex;
+    justify-content: space-between;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+#forecast .forecast-card {
+    flex: 1;
+    text-align: center;
+}
+
+#search-suggestions {
+    display: none;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 600px) {
+    form {
+        flex-direction: column;
+    }
+
+    input[type="text"], button {
+        width: 100%;
+        border-radius: 5px;
+    }
+
+    #forecast {
+        flex-direction: column;
+    }
+
+    #forecast .forecast-card {
+        margin-bottom: 10px;
+    }
+}
