@@ -53,7 +53,6 @@ async function displayWeather(city) {
     }
 }
 
-// Function to handle form submission
 async function handleSubmit(event) {
     event.preventDefault();
     const city = cityInput.value.trim();
@@ -62,6 +61,7 @@ async function handleSubmit(event) {
     await displayWeather(city);
     cityInput.value = '';
 }
+
 
 
 // Function to render search suggestions
@@ -85,25 +85,10 @@ async function handleInput(event) {
         citiesList.innerHTML = '';
     }
 }
-// Function to handle clicking on search history
-async function handleHistoryCityClick(city) {
-    await displayWeather(city);
-}
 
 // Event listeners
 searchForm.addEventListener('submit', handleSubmit);
 cityInput.addEventListener('input', handleInput);
-
-// Function to render search history
-function renderSearchHistory() {
-    searchHistory.innerHTML = '';
-    cities.forEach(city => {
-        const cityButton = document.createElement('button');
-        cityButton.textContent = city;
-        cityButton.addEventListener('click', () => handleHistoryCityClick(city));
-        searchHistory.appendChild(cityButton);
-    });
-}
 
 // Load search history from localStorage on page load
 const cities = JSON.parse(localStorage.getItem('searchedCities')) || [];
