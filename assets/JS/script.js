@@ -105,14 +105,5 @@ function renderSearchHistory() {
     });
 }
 
-window.myWidgetParam ? window.myWidgetParam : window.myWidgetParam = [];
-window.myWidgetParam.push({
-    id: 11,
-    cityid: '2078025', // Default city ID (you can update this as needed)
-    appid: apiKey, // Use your OpenWeatherMap API key
-    units: 'metric',
-    containerid: 'openweathermap-widget-11',
-});
-
 // Load search history from localStorage on page load
 const cities = JSON.parse(localStorage.getItem('searchedCities')) || [];
