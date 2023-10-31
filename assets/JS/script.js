@@ -21,7 +21,12 @@ async function getCitiesData(query) {
 async function renderCitySuggestions(query) {
     const citiesData = await getCitiesData(query);
     const suggestions = citiesData.map(city => city.name);
-    citiesList.innerHTML = '';
+    citiesList.innerHTML = ''; // Clear previous suggestions
+    suggestions.forEach(cityName => {
+        const option = document.createElement('option');
+        option.value = cityName;
+        citiesList.appendChild(option);
+    });
 }
 
 // Function to fetch weather data for a city
@@ -60,6 +65,11 @@ async function handleSubmit(event) {
 
     await displayWeather(city);
     cityInput.value = '';
+
+    // Update the search history
+    cities.push(city);
+    localStorage.setItem('searchedCities', JSON.stringify(cities));
+    renderSearchSuggestions(); // Update search suggestions
 }
 
 
