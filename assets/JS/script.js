@@ -42,19 +42,29 @@ async function getWeatherData(city) {
 }
 
 // Function to display weather data for a city
-async function displayWeather(city) {
-    const weatherData = await getWeatherData(city);
-    if (weatherData) {
-        const temperatureCelsius = Math.round(weatherData.main.temp);
+// Function to display user-friendly error message
+function displayError(message) {
+    currentWeather.innerHTML = `<p>${message}</p>`;
+}
 
-        currentWeather.innerHTML = `
-            <h2>${city}</h2>
-            <p>Temperature: ${temperatureCelsius} &#8451;</p>
-            <p>Humidity: ${weatherData.main.humidity}%</p>
-            <p>Wind Speed: ${weatherData.wind.speed} m/s</p>
-        `;
-    } else {
-        currentWeather.innerHTML = '<p>Weather data not available for this city.</p>';
+async function displayWeather(city) {
+    try {
+        const weatherData = await getWeatherData(city);
+        if (weatherData) {
+            const temperatureCelsius = Math.round(weatherData.main.temp);
+
+            currentWeather.innerHTML = `
+                <h2>${city}</h2>
+                <p>Temperature: ${temperatureCelsius} &#8451;</p>
+                <p>Humidity: ${weatherData.main.humidity}%</p>
+                <p>Wind Speed: ${weatherData.wind.speed} m/s</p>
+            `;
+        } else {
+            displayError('Weather data not available for this city.');
+        }
+    } catch (error) {
+        console.error('Error fetching weather data:', error);
+        displayError('An error occurred while fetching weather data.');
     }
 }
 
@@ -72,6 +82,12 @@ async function handleSubmit(event) {
     renderSearchSuggestions(); // Update search suggestions
 }
 
+citiesList.addEventListener('click', function (event) {
+    const clickedCity = event.target.textContent; // Get the text content of the clicked item
+    if (clickedCity) {
+        displayWeather(clickedCity); // Display weather for the clicked city
+    }
+});
 
 
 // Function to render search suggestions
