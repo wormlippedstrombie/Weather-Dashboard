@@ -1,98 +1,93 @@
-/* Reset default margin and padding for all elements */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
     font-family: Arial, sans-serif;
-    background-color: #f2f2f2;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
 }
 
 .container {
-    max-width: 800px;
+    max-width: 600px;
     margin: 0 auto;
+    background-color:  #FFA500; 
     padding: 20px;
-    background-color: white;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-h1 {
-    font-size: 24px;
-    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     text-align: center;
 }
 
-form {
-    display: flex;
+h1 {
+    font-size: 28px;
     margin-bottom: 20px;
+    color: #fff; /* White text color for headings */
 }
 
-input[type="text"] {
-    flex: 1;
+#search-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+
+#city-input {
+    width: 60%;
     padding: 10px;
     border: 1px solid #ccc;
-    border-radius: 5px 0 0 5px;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-right: 10px;
 }
 
 button {
     padding: 10px 20px;
-    background-color: #007bff;
+    background-color: #007BFF;
     border: none;
-    border-radius: 0 5px 5px 0;
-    color: white;
+    color: #fff;
+    border-radius: 5px;
     cursor: pointer;
+    font-size: 16px;
 }
 
-button:hover {
-    background-color: #0056b3;
+#city-input::placeholder {
+    color: #aaa;
 }
 
 #current-weather {
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 5px;
-    margin-bottom: 20px;
-    text-align: center; /* Center text in current-weather div */
+    margin: 20px 0;
 }
 
-#forecast {
-    display: flex;
-    flex-wrap: wrap; /* Allow forecast items to wrap to the next line on smaller screens */
-    justify-content: space-between;
-    background-color: #f9f9f9;
-    border-radius: 5px;
-    padding: 20px;
+#current-weather h2 {
+    font-size: 24px;
+    color: #fff; /* White text color for headings */
 }
 
-.forecast-card {
-    flex-basis: calc(33.33% - 10px); /* Set width for each forecast card, accounting for margins */
+#current-weather p {
+    font-size: 18px;
+    color: #eee; /* Light gray text color for content */
+    margin: 10px 0;
+}
+
+#weather-forecast {
+    margin-top: 20px;
+}
+
+.forecast-item {
+    display: inline-block;
+    width: 30%;
+    background-color: #007BFF; /* Updated to blue for forecast boxes */
+    border: none; /* No border */
+    border-radius: 5px;
+    margin: 5px;
+    padding: 10px;
     text-align: center;
-    margin-bottom: 10px; /* Add spacing between forecast cards */
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1); /* Added drop shadow */
 }
 
-#search-suggestions {
-    display: none;
+.forecast-item p {
+    font-size: 16px;
+    color: #fff; /* White text color for content */
 }
 
-/* Responsive styles */
-@media screen and (max-width: 600px) {
-    form {
-        flex-direction: column;
-    }
-
-    input[type="text"], button {
-        width: 100%;
-        border-radius: 5px;
-    }
-
-    #forecast {
-        flex-direction: column;
-    }
-
-    .forecast-card {
-        flex-basis: 100%; /* Full width for forecast cards on smaller screens */
-    }
+img {
+    max-width: 100px;
+    max-height: 100px;
 }
