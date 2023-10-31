@@ -27,7 +27,7 @@ The Weather Dashboard is a web application that allows users to check the curren
 To get started with the Weather Dashboard, follow these steps:
 
 1. Clone the repository to your local machine:
-   -git clone 
+   -git clone https://github.com/wormlippedstrombie/Weather-Dashboard
 
 3. Open the project in a code editor of your choice.
 
